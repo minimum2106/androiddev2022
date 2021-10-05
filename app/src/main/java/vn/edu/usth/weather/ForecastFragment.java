@@ -1,17 +1,13 @@
 package vn.edu.usth.weather;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 
 /**
@@ -52,13 +48,6 @@ public class ForecastFragment extends Fragment {
         return fragment;
     }
 
-    Calendar calendar = Calendar.getInstance();
-    Date date = calendar.getTime();
-    String day = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime());
-
-    public static final String LOG_TAG = "";
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +61,18 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_forecast, container, false);
-        root.setBackgroundColor(Color.parseColor("#20FF0000"));
-        TextView text = root.findViewById(R.id.day);
-        text.setText(day);
-        return root;
+        LinearLayout layout = new LinearLayout(getActivity());
+        layout.setBackgroundColor(0x80FF0000);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        TextView day = new TextView(getActivity());
+        day.setText("Today's weather");
+        ImageView rainy = new ImageView(getActivity());
+        rainy.setImageResource(R.drawable.rain);
+
+        layout.addView(day);
+        layout.addView(rainy);
+
+        return layout;
     }
 }
