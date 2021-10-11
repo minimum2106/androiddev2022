@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".WeatherFragment">
 
-
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="match_parent"
@@ -20,4 +19,11 @@
         android:layout_height="30sp"
         android:text="@string/rainy"
         android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/frame" />
 </RelativeLayout>
